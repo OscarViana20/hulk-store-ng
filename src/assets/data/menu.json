@@ -10,5 +10,9 @@
     {
         "nombre": "Shopping",
         "redirect": "/dashboard/shopping"
+    },
+    {
+        "nombre": "Reports",
+        "redirect": "/dashboard/reports"
     }
 ]

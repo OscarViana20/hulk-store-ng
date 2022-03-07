@@ -11,6 +11,8 @@ import { CategoriesComponent } from './categories/categories.component';
 import { AddProductComponent } from './products/add-product/add-product.component';
 import { AddCategoryComponent } from './categories/add-category/add-category.component';
 import { ShoppingComponent } from './shopping/shopping.component';
+import { ReportsComponent } from './reports/reports.component';
+import { DetailPurchaseComponent } from './reports/detail-purchase/detail-purchase.component';
 
 
 
@@ -23,6 +25,8 @@ import { ShoppingComponent } from './shopping/shopping.component';
     AddProductComponent,
     AddCategoryComponent,
     ShoppingComponent,
+    ReportsComponent,
+    DetailPurchaseComponent
   ],
   imports: [
     CommonModule,

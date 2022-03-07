@@ -1,0 +1,55 @@
+<div class="container">
+    <mat-toolbar>
+        <span>Purchase Order Reports</span>
+        <div class="example-spacer"></div>
+    </mat-toolbar>
+
+    <mat-form-field appearance="standard">
+        <mat-label>Filter</mat-label>
+        <input matInput (keyup)="applyFilter($event)" #input autocomplete="off">
+    </mat-form-field>
+
+    <div  class="mat-elevation-z8">
+        <table mat-table [dataSource]="dataSource" matSort>
+
+            <ng-container matColumnDef="id">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header style="width: 7% !important"> ID </th>
+              <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+            </ng-container>
+          
+            <ng-container matColumnDef="name">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header style="width: 23% !important"> Name </th>
+              <td mat-cell *matCellDef="let element"> {{element.personName}} {{element.personLastName}} </td>
+            </ng-container>
+          
+            <ng-container matColumnDef="totalPurchase">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Total Purchase </th>
+              <td mat-cell *matCellDef="let element"> {{element.totalPurchase | currency:'USD'}} </td>
+            </ng-container>
+          
+            <ng-container matColumnDef="paymentType">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Payment Type </th>
+              <td mat-cell *matCellDef="let element"> {{element.paymentType}} </td>
+            </ng-container>
+          
+            <ng-container matColumnDef="createdDate">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Register Date </th>
+              <td mat-cell *matCellDef="let element"> {{element.createdDate | date: 'yyyy-MM-dd'}} </td>
+            </ng-container>
+    
+            <ng-container matColumnDef="actions">
+              <th mat-header-cell *matHeaderCellDef></th>
+              <td mat-cell *matCellDef="let element" style="text-align: right;">
+                    <a class="pointer" style="color: #1f516f;" matTooltip="Purchase Detail" (click)="detailPurchase(element)">
+                      <mat-icon>search</mat-icon>
+                    </a>
+              </td>
+            </ng-container>
+          
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+        <mat-paginator [pageSizeOptions]="[10, 20]" showFirstLastButtons></mat-paginator>
+    </div>
+    
+</div>

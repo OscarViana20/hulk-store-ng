@@ -1,7 +1,7 @@
 <mat-toolbar color="primary">
     <span>Hulk Store</span>
     <span class="example-spacer"></span>
-    <button mat-button *ngFor="let item of menu"
+    <button mat-button style="padding-left: 20px;" *ngFor="let item of menu"
         [routerLink]="item.redirect">{{item.nombre}}
     </button>
     <span class="example-spacer"></span>
