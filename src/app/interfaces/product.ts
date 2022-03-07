@@ -6,7 +6,8 @@ export interface Product {
     barcode: string;
     name: string;
     price: number;
-    quantity: number;
+    quantity: number; //stock
+    quantityOrder: number;
     categoryName: string | null;
     categoryType: string | null;
   }

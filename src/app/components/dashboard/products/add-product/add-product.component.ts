@@ -64,6 +64,7 @@ export class AddProductComponent implements OnInit {
       price: this.form.value.price,
       quantity: this.form.value.quantity,
       categoryId: this.form.value.categoryId,
+      quantityOrder: 0,
       categoryName: null,
       categoryType: null
     }

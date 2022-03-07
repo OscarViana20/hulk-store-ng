@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { SharedModule } from '../shared/shared.module';
 import { DashboardRoutingModule } from './dashboard-routing.module';
@@ -21,11 +22,12 @@ import { ShoppingComponent } from './shopping/shopping.component';
     CategoriesComponent,
     AddProductComponent,
     AddCategoryComponent,
-    ShoppingComponent
+    ShoppingComponent,
   ],
   imports: [
     CommonModule,
     SharedModule,
+    FormsModule,
     DashboardRoutingModule
   ]
 })

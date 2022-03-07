@@ -1,6 +1,6 @@
 export interface PurchaseDetail {
 
-    productId: number;  
+    productId: number | undefined;  
     quantity: number;  
     price: number;  
     stock: number;

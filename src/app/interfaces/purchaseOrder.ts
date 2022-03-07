@@ -2,7 +2,7 @@ import { PurchaseDetail } from './purchaseDetail';
 
 export interface PurchaseOrder {
 
-  id: number;
+  paymentTypeId: number;
 
   username?: string;
 
