@@ -1,0 +1,52 @@
+<div>
+    <mat-toolbar>
+        <span>{{titulo}}</span>
+    </mat-toolbar>
+    <mat-card style="margin-top: 10px;">
+        <form [formGroup]="form" (ngSubmit)="addProduct()">
+            <mat-grid-list cols="4" rowHeight="70px">
+                <mat-grid-tile [colspan]="2" [rowspan]="1">
+                    <mat-form-field class="input-width">
+                        <mat-label>Name</mat-label>
+                        <input matInput autocomplete="off" formControlName="name">
+                    </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="2" [rowspan]="6">
+                    <img src="./assets/img/user.png" width="250" height="250">
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="2" [rowspan]="1">
+                    <mat-form-field class="input-width">
+                        <mat-label>Barcode</mat-label>
+                        <input type="text" matInput autocomplete="off" formControlName="barcode">
+                    </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="2" [rowspan]="1">
+                    <mat-form-field class="input-width">
+                        <mat-label>Price</mat-label>
+                        <input type="number" matInput autocomplete="off" formControlName="price">
+                    </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="2" [rowspan]="1">
+                    <mat-form-field class="input-width">
+                        <mat-label>Stock</mat-label>
+                        <input type="number" matInput autocomplete="off" formControlName="quantity">
+                    </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="2" [rowspan]="1">
+                    <mat-form-field class="input-width">
+                        <mat-label>Category</mat-label>
+                        <mat-select formControlName="categoryId">
+                            <mat-option *ngFor="let category of categories" [value]="category.id">
+                            {{category.name}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="2" [rowspan]="1">
+                    <button type="button" mat-raised-button style="margin-right: 20px;" (click)="cancelManage()">Cancel</button>
+                    <button type="submit" mat-raised-button color="primary" [disabled]="form.invalid">Agree</button>
+                </mat-grid-tile>
+            </mat-grid-list>
+        </form>
+    </mat-card>
+</div>

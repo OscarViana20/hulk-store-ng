@@ -1,0 +1,64 @@
+<div class="container">
+    <mat-toolbar>
+        <span>Products</span>
+        <div class="example-spacer"></div>
+        <button mat-raised-button color="primary" (click)="manageProduct()">New</button>
+    </mat-toolbar>
+
+    <mat-form-field appearance="standard">
+        <mat-label>Filter</mat-label>
+        <input matInput (keyup)="applyFilter($event)" #input autocomplete="off">
+    </mat-form-field>
+
+    <div  class="mat-elevation-z8">
+        <table mat-table [dataSource]="dataSource" matSort>
+
+            <ng-container matColumnDef="id">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header style="width: 7% !important"> ID </th>
+              <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+            </ng-container>
+          
+            <ng-container matColumnDef="barcode">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Barcode </th>
+              <td mat-cell *matCellDef="let element"> {{element.barcode}} </td>
+            </ng-container>
+          
+            <ng-container matColumnDef="name">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header style="width: 23% !important"> Name </th>
+              <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+            </ng-container>
+          
+            <ng-container matColumnDef="price">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Price </th>
+              <td mat-cell *matCellDef="let element"> {{element.price}} </td>
+            </ng-container>
+          
+            <ng-container matColumnDef="quantity">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Stock </th>
+              <td mat-cell *matCellDef="let element"> {{element.quantity}} </td>
+            </ng-container>
+          
+            <ng-container matColumnDef="category">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Category </th>
+              <td mat-cell *matCellDef="let element"> {{element.categoryName}} </td>
+            </ng-container>
+    
+            <ng-container matColumnDef="actions">
+              <th mat-header-cell *matHeaderCellDef></th>
+              <td mat-cell *matCellDef="let element" style="text-align: right;">
+                    <a class="pointer" style="color: #1f516f;" matTooltip="Edit Product" (click)="updateProduct(element)">
+                      <mat-icon>edit</mat-icon>
+                    </a>
+                    <a class="pointer" style="color: #e15639;" matTooltip="Delete Product" (click)="deleteProduct(element)">
+                      <mat-icon>delete</mat-icon>
+                    </a>
+              </td>
+            </ng-container>
+          
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+        <mat-paginator [pageSizeOptions]="[10, 20]" showFirstLastButtons></mat-paginator>
+    </div>
+    
+</div>

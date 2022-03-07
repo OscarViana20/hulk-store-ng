@@ -1,0 +1,12 @@
+<mat-toolbar color="primary">
+    <span>Hulk Store</span>
+    <span class="example-spacer"></span>
+    <button mat-button *ngFor="let item of menu"
+        [routerLink]="item.redirect">{{item.nombre}}
+    </button>
+    <span class="example-spacer"></span>
+    <button routerLink="/login" mat-icon-button class="logout-icon" matTooltip="Logout" (click)="onLoggedOut()">
+        <mat-icon>logout</mat-icon>
+    </button>
+</mat-toolbar>
+
